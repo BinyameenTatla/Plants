@@ -58,16 +58,16 @@ export const Navbar = () => {
                 }`}
             >
                 <div className="flex flex-col items-center space-y-2 py-2">
-                    {['Home', 'About', 'Services', 'Product', 'Contact'].map((item) => (
-                        <NavLink 
-                            key={item} 
-                            to={`/`} 
-                            className="text-white hover:text-green-200 transition duration-300"
-                            onClick={() => setIsOpen(false)} // Close on click
-                        >
-                            {item}
-                        </NavLink>
-                    ))}
+                {['Home', 'About', 'Services', 'Product', 'Contact'].map((item) => (
+  <NavLink 
+    key={item} 
+    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} // Fix home route
+    className="text-white hover:text-green-200 transition duration-300"
+    onClick={() => setIsOpen(false)} 
+  >
+    {item}
+  </NavLink>
+))}
                     {/* Sign In Button for Mobile */}
                     <a 
                         href="#signin"
